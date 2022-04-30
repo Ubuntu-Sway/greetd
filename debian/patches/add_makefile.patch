@@ -1,0 +1,58 @@
+--- a/dev/null	2022-04-29 09:49:57.136042219 +0400
++++ b/Makefile	2022-04-29 12:37:07.060142707 +0400
+@@ -0,0 +1,55 @@
++export prefix ?= /usr
++sysconfdir ?= /etc
++bindir = $(prefix)/bin
++libdir = $(prefix)/lib
++
++PACKAGE=greetd
++BIN=greetd
++BIN_AGREETY=agreety
++CONF=greetd.conf
++CONF_TOML=config.toml
++
++DEBUG ?= 0
++TARGET = debug
++ifeq ($(DEBUG),0)
++	ARGS += "--release"
++	TARGET = release
++endif
++
++VENDORED ?= 0
++ifeq ($(VENDORED),1)
++	ARGS += "--frozen" "--offline"
++endif
++
++BINARY=target/$(TARGET)/$(BIN)
++
++.PHONY: all clean distclean install uninstall update vendor
++
++all: $(BINARY)
++
++clean:
++	cargo clean
++	
++distclean:
++	rm -rf .cargo vendor vendor.tar target
++	
++vendor:
++	mkdir -p .cargo
++	cargo vendor | head -n -1 > .cargo/config
++	echo 'directory = "vendor"' >> .cargo/config
++	tar pcf vendor.tar vendor
++	rm -rf vendor
++
++extract-vendor:
++ifeq ($(VENDORED),1)
++	rm -rf vendor; tar pxf vendor.tar
++endif
++
++install:
++	install -Dm04755 "$(BINARY)" "$(DESTDIR)$(bindir)/$(BIN)"
++	install -Dm04755 "$(BINARY)" "$(DESTDIR)$(bindir)/$(BIN_AGREETY)"
++	install -Dm0644 "debian/$(CONF)" "$(DESTDIR)$(libdir)/sysusers.d/$(CONF)"
++	install -Dm0644 "./$(CONF_TOML)" "$(DESTDIR)$(sysconfdir)/greetd/$(CONF_TOML)"
++
++$(BINARY): extract-vendor
++	cargo build $(ARGS) --locked

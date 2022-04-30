@@ -1,0 +1,65 @@
+greetd (0.8.0.1-7~jammy) jammy; urgency=medium
+
+  * Finaly fix debconf
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Sat, 30 Apr 2022 14:26:47 +0400
+
+greetd (0.8.0.1-6~jammy) jammy; urgency=medium
+
+  * Try to fix debconf dialog
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Sat, 30 Apr 2022 12:35:40 +0400
+
+greetd (0.8.0.1-5~jammy) jammy; urgency=medium
+
+  * Update copyright
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Fri, 29 Apr 2022 17:56:49 +0400
+
+greetd (0.8.0.1-4~jammy) jammy; urgency=medium
+
+  * Add postinstall scripts
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Fri, 29 Apr 2022 11:35:49 +0400
+
+greetd (0.8.0.1-3~jammy) jammy; urgency=medium
+
+  * Update greetd.pam
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Fri, 29 Apr 2022 00:59:12 +0400
+
+greetd (0.8.0.1-2) jammy; urgency=medium
+
+  * Add libpam0g-dev
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Wed, 27 Apr 2022 15:19:35 +0400
+
+greetd (0.8.0.1-1) jammy; urgency=medium
+
+  * Fix
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Wed, 27 Apr 2022 14:54:48 +0400
+
+greetd (0.8.0-4) jammy; urgency=medium
+
+  * Fix build
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Wed, 27 Apr 2022 14:47:09 +0400
+
+greetd (0.8.0-3) jammy; urgency=medium
+
+  * Add makefile
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Wed, 27 Apr 2022 14:35:08 +0400
+
+greetd (0.8.0-2) jammy; urgency=medium
+
+  * Initial upload
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Wed, 27 Apr 2022 14:28:33 +0400
+
+greetd (0.8.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Aleksey Samoilov <samoilov.lex@gmail.com>  Thu, 21 Apr 2022 00:43:51 +0400

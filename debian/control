@@ -1,0 +1,27 @@
+Source: greetd
+Section: x11
+Priority: optional
+Maintainer: Aleksey Samoilov <samoilov.lex@gmail.com>
+Build-Depends: debhelper-compat (= 13),
+               debconf,
+               po-debconf,
+               cargo:native,
+               git,
+               libpam0g-dev,
+               pkg-config,
+               rustc:native,
+               scdoc
+Standards-Version: 4.5.1
+Homepage: https://sr.ht/~kennylevinsen/greetd/
+Rules-Requires-Root: no
+
+Package: greetd
+Architecture: any
+Depends: adduser, systemd, ${shlibs:Depends}, ${misc:Depends}
+Provides: x-display-manager
+Description: minimal and flexible login manager daemon
+ greetd is a minimal and flexible login manager daemon
+ that makes no assumptions about what you want to launch.
+ .
+ This package also contais agreety, which is drop-in replacement
+ for agetty

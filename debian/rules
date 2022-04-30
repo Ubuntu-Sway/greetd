@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+export VENDORED ?= 1
+CLEAN ?= 1
+
+%:
+	dh $@
+	
+override_dh_auto_clean:
+ifeq ($(CLEAN),1)
+	make clean
+endif
+ifeq ($(VENDORED),1)
+	if ! ischroot; then make vendor; fi
+endif
+	
+override_dh_auto_build:
+	env CARGO_HOME="$$(pwd)/target/cargo" make prefix=/usr
+	
+override_dh_installsystemd:
+	dh_installsystemd -pgreetd --no-start -r greetd.service
+	
+override_dh_installpam:
+	dh_installpam
+	dh_installpam --name=greetd
+	
+override_dh_installman:
+	debian/install_man.sh
+	dh_installman
+
+override_dh_dwz:
+	
+override_dh_auto_test:
