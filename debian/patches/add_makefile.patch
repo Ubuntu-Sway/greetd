@@ -1,10 +1,9 @@
---- a/dev/null	2022-04-29 09:49:57.136042219 +0400
-+++ b/Makefile	2022-04-29 12:37:07.060142707 +0400
-@@ -0,0 +1,55 @@
+--- a/dev/null	2022-06-20 14:25:58.744025636 +0400
++++ b/Makefile	2022-06-20 17:09:40.460591268 +0400
+@@ -0,0 +1,53 @@
 +export prefix ?= /usr
 +sysconfdir ?= /etc
 +bindir = $(prefix)/bin
-+libdir = $(prefix)/lib
 +
 +PACKAGE=greetd
 +BIN=greetd
@@ -51,7 +50,6 @@
 +install:
 +	install -Dm04755 "$(BINARY)" "$(DESTDIR)$(bindir)/$(BIN)"
 +	install -Dm04755 "$(BINARY)" "$(DESTDIR)$(bindir)/$(BIN_AGREETY)"
-+	install -Dm0644 "debian/$(CONF)" "$(DESTDIR)$(libdir)/sysusers.d/$(CONF)"
 +	install -Dm0644 "./$(CONF_TOML)" "$(DESTDIR)$(sysconfdir)/greetd/$(CONF_TOML)"
 +
 +$(BINARY): extract-vendor
