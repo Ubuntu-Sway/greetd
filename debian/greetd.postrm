@@ -9,7 +9,7 @@ case "$1" in
         update-rc.d greetd remove > /dev/null
 
         if [ -d /var/cache/greetd ]; then rm -r /var/cache/greetd; fi
-        if [ -d /var/lib/greeter ]; then rm -r /var/lib/greeter; fi
+        if [ -d /var/lib/greetd ]; then rm -r /var/lib/greetd; fi
         if [ -d /var/run/greetd ]; then rm -r /var/run/greetd; fi
         if [ -d /var/log/greetd ]; then rm -r /var/log/greetd; fi
         if [ -d /run/greetd ]; then rm -r /run/greetd; fi
